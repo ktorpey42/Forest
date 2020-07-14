@@ -27,3 +27,13 @@ function myFunction() {
 }
 
 
+var dt = new Date();
+document.getElementById("datetime").innerHTML = dt.toLocaleTimeString();
+
+
+function showInput() {
+    document.getElementById('display').innerHTML =
+                document.getElementById("user_input").value;
+    }
+
+    

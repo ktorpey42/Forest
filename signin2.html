@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="EN">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" content="Terra forest bathing">
+		<meta name="author" content="Kieran Torpey">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+		<title>Sign in</title>
+		<link type="text/css" rel="stylesheet" href="css/reset.css" />
+		<link type="text/css" rel="stylesheet" href="css/master.css" />
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+		<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
+		<link href="https://www.fontify.me/wf/254d651a68fa31c4777a019dc9d73f44" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body >
+	<div class="mapback">
+			<header>
+			 	<p class="time"><span id="datetime" class="time"></span></p>
+			</header>
+
+			<main>
+			<div class="on6">
+
+			 <p><span class="bold">Welcome <span id="result"></span>, summer is here!</span> <br>Terra is loading nearby routes, one moment please.</p>
+			</div>
+			 <div class="tap3a">
+			 		<a href="signin1.html"><i class="fas fa-step-backward"></i></a>
+			 		<a href=""><p class="tap1a" >(Skip)</p></a>
+			 		<a href="map1.html"><i class="fas fa-step-forward"></i></a>
+			 </div>
+
+			</main>
+		</div>
+
+
+<script  src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+			document.getElementById("result").innerHTML=localStorage.getItem("textvalue");
+
+</script>
+
+		<script src="js/big.js" ></script>
+		<script src="js/keyboard.js" ></script>
+</body>
+</html>

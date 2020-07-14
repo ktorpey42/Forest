@@ -7,39 +7,36 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-		<title>Landing page</title>
+		<title>Sign in</title>
 		<link type="text/css" rel="stylesheet" href="css/reset.css" />
 		<link type="text/css" rel="stylesheet" href="css/master.css" />
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
 		<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
-
-
 		<link href="https://www.fontify.me/wf/254d651a68fa31c4777a019dc9d73f44" rel="stylesheet" type="text/css">
-
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body >
-<div class="wall">
-	<header>
-		<p><span id="datetime"></span></p>
-	</header>
+<header>
+ 	<p class="time"><span id="datetime" class="time"></span></p>
+</header>
 
-	<main>
-			<section >
-				<div >
-					<a href="#"><img src="images/terra_logo_white.png"  alt="Terra logo" /></a>
-					<p>Hello, <span class="italic">I'm Terra,</span><br>Welcome</br></p>
+<main>
+<h1>Page 3</h1>
 
-				</div>
-				</section>
+ Welcome ... <span id="result"></span>
 
-				<div class="tap">
-					<!--<i class="fas fa-step-backward"></i>!-->
-					<a href="onboarding1.html"><p class="tap1">(Tap to continue)</p></a>
-					<a href="onboarding1.html"><i class="fas fa-step-forward"></i></a>
-				</div>
+<a href="signin2.html">Return</a>
 
-</div>
+</main>
+
+
 <script  src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+			document.getElementById("result").innerHTML=localStorage.getItem("textvalue");
+</script>
+
 		<script src="js/big.js" ></script>
+		<script src="js/keyboard.js" ></script>
 </body>
 </html>

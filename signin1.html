@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="EN">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" content="Terra forest bathing">
+		<meta name="author" content="Kieran Torpey">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+		<title>Sign in</title>
+		<link type="text/css" rel="stylesheet" href="css/reset.css" />
+		<link type="text/css" rel="stylesheet" href="css/master.css" />
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+		<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
+		<link href="https://www.fontify.me/wf/254d651a68fa31c4777a019dc9d73f44" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<script>
+					function passvalues() {
+						var firstname=document.getElementById("txt").value;
+						localStorage.setItem("textvalue",firstname);
+						return false;
+					}
+
+		</script>
+
+
+</head>
+<body >
+<header>
+ 	<p class="time"><span id="datetime" class="time"></span></p>
+</header>
+
+<main>
+
+	<div class="on3">
+		<a href=""><img src="images/signinlogo.png"  alt="Logo terra" /></a>
+	</div>
+
+
+<form action="signin2.html">
+<input type="text"  class="use-keyboard-input" id="txt" placeholder="What is your first name?">
+<br>
+<input  class="use-keyboard-input" placeholder="What is your second name?">
+<br>
+<input  class="use-keyboard-input" placeholder="Where are you based?">
+<br>
+<input type="password"  class="use-keyboard-input" placeholder="Password (use caps & numbers)">
+<br>
+
+<input type="submit" value="Start exploring!" class="box" onclick="passvalues()">
+</form>
+
+
+<div class="tap3a">
+		<a href="onboarding4.html"><i class="fas fa-step-backward"></i></a>
+		<a href=""><p class="tap1a" >(Skip)</p></a>
+		<a href="signin2.html"><i class="fas fa-step-forward"></i></a>
+</div>
+
+</main>
+
+
+<script  src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+			/*function passvalues() {
+				var firstname=document.getElementById("txt").value;
+				localStorage.setItem("textvalue",firstname);
+				return false;
+			}
+*/
+</script>
+
+		<script src="js/big.js" ></script>
+		<script src="js/keyboard.js" ></script>
+</body>
+</html>
