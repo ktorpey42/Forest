@@ -10,6 +10,8 @@
 
 }
 
+
+
 .wall {
   width: 100%;
   height: calc(100vh);
@@ -28,6 +30,11 @@
     background-position: center;
     background-size: cover;
 
+}
+
+.fit {
+
+  height: auto;
 }
 
 header p {
@@ -68,8 +75,32 @@ img {
 
 .container {
 
-  height: 5rem;
-  background-color: blue;
+  height: 125px;
+  background-color: #10F6CD;
+
+}
+
+.container1 {
+
+  background-color: #10F6CD;
+
+
+}
+
+.popuptext {
+  width: 70%;
+  margin: 0 auto;
+  background-color: #10F6CD;
+  height: 355px;
+  position: relative;
+  top: -450px;
+  z-index: 10;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.centre {
+  padding-top: 30px;
+  text-align: center;
 }
 
 .italic {
@@ -284,7 +315,7 @@ img {
 .keyboard {
   position: fixed;
   left: 0;
-  bottom: 0;
+  bottom: -300px;
   width: 100%;
   padding: 5px 0;
   background: #004134;
@@ -370,6 +401,16 @@ section p {
 
     line-height: 2rem;
 
+}
+
+.keyboard {
+  bottom: 0;
+}
+
+.on1 {
+
+  margin: auto;
+  width: 50%;
 }
 
 }

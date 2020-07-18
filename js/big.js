@@ -3,6 +3,9 @@
 
 
 
+
+
+
 // Initialize and add the map
 function myMap() {
   // The location of Uluru
@@ -12,7 +15,7 @@ function myMap() {
       document.getElementById('googleMap'), {zoom: 13, center: uluru});
   // The marker, positioned at Uluru
   var marker = new google.maps.Marker({position: uluru, map: map});
-}
+//}
 
 
 
@@ -36,4 +39,6 @@ function showInput() {
                 document.getElementById("user_input").value;
     }
 
-    
+
+  var x = document.getElementById("demo");
+
