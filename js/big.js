@@ -2,10 +2,24 @@
 
 var map, infoWindow;
 function initMap() {
+  var center = new google.maps.LatLng(-34.397, 150.644)
   map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: -34.397, lng: 150.644},
+    center: center,
     zoom: 13
   });
+// Insert places code
+  var request = {
+    location: center,
+    radius: 8047,
+    types: ['cafe']
+  };
+
+      var service = new google.maps.places.PlacesService(map);
+
+      service.nearbySearch(request, callback);
+
+// Insert places code end
+
   infoWindow = new google.maps.InfoWindow;
 
   // Try HTML5 geolocation.
@@ -38,6 +52,22 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }
 
 
+function callback(results, status) {
+    if(status == google.maps.places.PlacesServiceStatus.OK) {
+        for (var i = 0; i < results.length; i++) {
+           createMarker(results[i]);
+        }
+    }
+
+}
+
+function createMarker(place) {
+  var placeLoc = place.geometry.location;
+  var marker = new google.maps.Marker({
+    map: map,
+    position: place.geometry.location
+  });
+}
 
 // Additional code for showing places on Google maps
 
