@@ -2,7 +2,7 @@
 
 var map;
 function initialize() {
-  var center = new.google.maps.LatLng(-34.397, 150.644);
+  var center = new google.maps.LatLng(-34.397, 150.644);
   map = new google.maps.Map(document.getElementById('map'), {
     center: center,
     zoom: 13
@@ -15,7 +15,7 @@ function initialize() {
 
   };
 
-  var service = new.google.maps.places.PlacesService(map);
+  var service = new google.maps.places.PlacesService(map);
 
   service.nearbySearch(request, callback);
 
