@@ -68,7 +68,7 @@ img {
 
 /* Google map */
 
-.map {
+#map {
 	width:100%;
 	height:35em;
 }
