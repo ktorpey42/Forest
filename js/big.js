@@ -1,17 +1,18 @@
 // Add new map code with HTML 5 Geolocation
 
-var map;
-var infoWindow;
 
-function initialize() {
-  var center = new google.maps.LatLng(-34.397, 150.644)
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: center,
+
+
+function initMap() {
+  var location = {lat: -34.397, lng: 150.644};
+
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: location,
     zoom: 13
   });
 // Insert places code
   var request = {
-    location: center,
+    location: location,
     radius: 8047,
     types: ['cafe']
   };
@@ -43,9 +44,15 @@ function createMarker(place) {
     map: map,
     position: place.geometry.location
   });
+    google.maps.event.addDomListener(marker, 'click', function() {
+      infowindow.setContent(place.name);
+      infowindow.open(map, this);
+
+    });
+
 }
 
-//google.maps.event.addDomListener(window, 'load', initialize);
+//google.maps.event.addDomListener(window, 'load', initMap);
 // Additional code for showing places on Google maps
 
 
