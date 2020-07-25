@@ -23,12 +23,6 @@ function initialize() {
 }
 
 
-  
-
-// Additional code for showing places on Google maps
-
-
-
 
 function callback(results, status) {
     if(status == google.maps.places.PlacesServiceStatus.OK) {
@@ -41,11 +35,12 @@ function callback(results, status) {
 function createMarker(place) {
       var placeLoc = place.geometry.location;
       var marker = new google.maps.Marker({
-        map: map;
-        position: place.geometry.location;
+        map: map,
+        position: place.geometry.location
       });
 }
 
+google.maps.event.addDomListener(window, 'load', initialize);
 
 // Other coding
 
