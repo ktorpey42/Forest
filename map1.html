@@ -44,7 +44,7 @@
       // failed.", it means you probably did not give permission for the browser to
       // locate you.
       let map;
-
+      let infowindow;
       function initMap() {
       	let location = new Object();
       	navigator.geolocation.getCurrentPosition(function(pos){
@@ -60,7 +60,7 @@
             radius: '8000',
             type: ['park']
           };
-
+          infowindow = new google.maps.InfoWindow();
           var service = new google.maps.places.PlacesService(map);
           service.nearbySearch(request, callback);
      });
@@ -81,6 +81,11 @@
               map: map,
               position: place.geometry.location
 
+          });
+
+          google.maps.event.addListener(marker, 'click', function() {
+            infowindow,setContent(place.name);
+            infowindow.open(map, this);
           });
       }
 
