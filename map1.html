@@ -56,7 +56,7 @@ function getRestaurants(location) {
  	var pyrmont = new google.maps.LatLng(location.lat, location.long);
 	var request = {
 		location: pyrmont,
-		radius: '2000',
+		radius: '8000',
 		type: ['restaurant']
 	};
 
@@ -68,11 +68,11 @@ function getRestaurants(location) {
       if(status == google.maps.places.PlacesServiceStatus.OK) {
           for (var i = 0; i < results.length; i++) {
              var place = results[i];
-						// let price = createPrice(place.price_level);
-						// let content = `<h3>${place.name}</h3>
-					//	 <h4>${place.vicinity}</h4>
-					//	 <p>Price:${price}<br/>
-					//	 Rating: ${place.rating}`;
+								let price = createPrice(place.price_level);
+								let content = `<h3>${place.name}</h3>
+								<h4>${place.vicinity}</h4>
+								<p>Price:${price}<br/>
+							 	Rating: ${place.rating}`;
 
 						 var marker = new google.maps.Marker({
 							 position: place.geometry.location,
