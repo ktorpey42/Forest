@@ -40,58 +40,46 @@ var service;
 var markers = [];
 
 function initMap() {
-	let location = new Object();
-	navigator.geolocation.getCurrentPosition(function(pos){
-		location.lat = pos.coords.latitude;
-		location.long = pos.coords.longitude;
-    map = new google.maps.Map(document.getElementById("map"), {
-	 center: {lat: location.lat, lng: location.long},
-	 zoom: 15
- });
- getRestaurants(location);
-});
+	var center = new google.maps.LatLng(37.422, -122.084058);
+	map = new google.maps.Map(document.getElementById('map'), {
+		center: center,
+		zoom: 13
+	});
 
-}
-
-function getRestaurants(location) {
- 	var pyrmont = new google.maps.LatLng(location.lat, location.long);
-	var request = {
-		location: pyrmont,
-		radius: '8000',
-		type: ['restaurant']
+ request = {
+			location: center,
+			radius: 8047,
+			types: ['cafe']
 	};
 
 	service = new google.maps.places.PlacesService(map);
-	service.nearbySearch(request, callback);
-}
 
+	service.nearbySearch(request, callback);
+
+	infoWindow = new google.maps.InfoWindow;
+
+}
 
 function callback(results, status) {
-		if(status == google.maps.places.PlacesServiceStatus.OK) {
-				for (var i = 0; i < results.length; i++) {
-					 var place = results[i];
-							
-					 var marker = new google.maps.Marker({
-						 position: place.geometry.location,
-						 map: map,
-						 title: place.name
-					 });
-
-					 var infowindow = new google.maps.InfoWindow({
-						 content: content
-					 });
-
-					 bindInfoWindow(marker, map, infowindow, content);
-					 marker.setMap(map);
-				}
-		}
+    if(status == google.maps.places.PlacesServiceStatus.OK) {
+        for (var i = 0; i < results.length; i++) {
+           createMarker(results[i]);
+        }
+    }
 
 }
 
-function bindInfoWindow(marker, map, infowindow, html) {
-	marker.addListener('click', function() {
-		infowindow.setContent(html);
-		infowindow.open(map, this);
+function createMarker(place) {
+  var placeLoc = place.geometry.location;
+  var marker = new google.maps.Marker({
+    map: map,
+    position: place.geometry.location
+  });
+
+	google.maps.event.addListener(marker, 'click', function() {
+		infoWindow.setContent(place.name);
+		infoWindow.open(map,this);
+
 	});
 }
 
