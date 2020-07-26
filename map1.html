@@ -101,7 +101,7 @@
         };
         const map = new google.maps.Map(document.getElementById("map"), {
           center: pyrmont,
-          zoom: 17
+          zoom: 13
         }); // Create the places service.
 
         const service = new google.maps.places.PlacesService(map);
@@ -119,8 +119,8 @@
         service.nearbySearch(
           {
             location: pyrmont,
-            radius: 500,
-            type: "store"
+            radius: 8000,
+            type: "park"
           },
           (results, status, pagination) => {
             if (status !== "OK") return;
