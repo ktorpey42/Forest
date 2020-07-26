@@ -1,13 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="EN">
   <head>
-    <title>Geolocation</title>
+    <meta charset="UTF-8">
+		<meta name="description" content="Terra forest bathing">
+		<meta name="author" content="Kieran Torpey">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+		<title>Sign in</title>
+		<link type="text/css" rel="stylesheet" href="css/reset.css" />
+		<link type="text/css" rel="stylesheet" href="css/master.css" />
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+		<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
+		<link href="https://www.fontify.me/wf/254d651a68fa31c4777a019dc9d73f44" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script async defer
 
     src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCpHK_L3crjNHbzd-gv4u4Gh09NGCwwrwo&callback=initMap">
     </script>
-    <style type="text/css">
+    <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
@@ -29,49 +43,21 @@
       // prompted by your browser. If you see the error "The Geolocation service
       // failed.", it means you probably did not give permission for the browser to
       // locate you.
-      let map, infoWindow;
+      let map;
 
       function initMap() {
-        map = new google.maps.Map(document.getElementById("map"), {
-          center: {
-            lat: 53.263656,
-            lng: -6.175779
-          },
-          zoom: 13
-        });
-        infoWindow = new google.maps.InfoWindow(); // Try HTML5 geolocation.
+      	let location = new Object();
+      	navigator.geolocation.getCurrentPosition(function(pos){
+      		location.lat = pos.coords.latitude;
+      		location.long = pos.coords.longitude;
+          map = new google.maps.Map(document.getElementById("map"), {
+      	 center: {lat: location.lat, lng: location.long},
+      	 zoom: 15
+       });
 
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(
-            position => {
-              const pos = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-              };
-              infoWindow.setPosition(pos);
-              infoWindow.setContent("Location found.");
-              infoWindow.open(map);
-              map.setCenter(pos);
-            },
-            () => {
-              handleLocationError(true, infoWindow, map.getCenter());
-            }
-          );
-        } else {
-          // Browser doesn't support Geolocation
-          handleLocationError(false, infoWindow, map.getCenter());
-        }
-      }
+     });
+}
 
-      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(
-          browserHasGeolocation
-            ? "Error: The Geolocation service failed."
-            : "Error: Your browser doesn't support geolocation."
-        );
-        infoWindow.open(map);
-      }
     </script>
   </head>
   <body>
