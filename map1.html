@@ -45,6 +45,11 @@
       // locate you.
       let map;
       let infowindow;
+
+      let request;
+      let service;
+      let markers = [];
+
       function initMap() {
       	let location = new Object();
       	navigator.geolocation.getCurrentPosition(function(pos){
@@ -55,21 +60,37 @@
       	 zoom: 15
        });
           var pyrmont = new google.maps.LatLng(location.lat, location.long);
-          var request = {
+          request = {
             location: pyrmont,
-            radius: '8000',
+            radius: '10000',
             type: ['park']
           };
           infowindow = new google.maps.InfoWindow();
-          var service = new google.maps.places.PlacesService(map);
+          service = new google.maps.places.PlacesService(map);
           service.nearbySearch(request, callback);
+
+          google.maps.event.addListener(map, 'rightclick', function(event) {
+              map.setCenter(event.latLng)
+              clearResults(markers)
+
+              var request = {
+                location: event.latLng,
+                radius: '10000',
+                  type: ['park']
+              };
+              service.nearbySearch(request, callback);
+          })
+
+
+
+
      });
 }
 
       function callback(results, status) {
           if(status == google.maps.places.PlacesServiceStatus.OK) {
               for (var i = 0; i < results.length; i++) {
-                 createMarker(results[i]);
+                 markers.push(createMarker(results[i]));
         }
     }
 
@@ -87,8 +108,16 @@
             infowindow.setContent(place.name);
             infowindow.open(map, this);
           });
+
+          return marker;
       }
 
+      function clearResults(markers) {
+          for (var m in markers) {
+            markers[m].setMap(null)
+          }
+          markers = []
+      }
 
     </script>
   </head>
