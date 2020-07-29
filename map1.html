@@ -21,11 +21,12 @@
 
     src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCpHK_L3crjNHbzd-gv4u4Gh09NGCwwrwo&callback=initMap">
     </script>
+
     <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
-        height: 85%;
+        height: 83%;
       }
 
       /* Optional: Makes the sample page fill the window. */
@@ -124,17 +125,23 @@
   </head>
   <body>
     <header class="top">
-      <p><span id="datetime"></span></p>
+     	<p class="time"><span id="datetime" class="time"></span></p>
       <h1><span class="bold"><span id="result"></span>, Let's start</span><br> forest bathing!</h1>
       <h2>Below nearby parks within 10km.</h2>
-
     </header>
+
     <div id="map"></div>
 
-    <div class="tap3a">
+    <div class="tap3b">
         <a href="onboarding4.html"><i class="fas fa-step-backward"></i></a>
         <a href=""><p class="tap1a" >(Skip)</p></a>
         <a href=""><i class="fas fa-step-forward"></i></a>
     </div>
+    <script  src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>document.getElementById("result").innerHTML=localStorage.getItem("textvalue");</script>
+    <script>var dt = new Date();
+    document.getElementById("datetime").innerHTML = dt.toLocaleTimeString();</script>
+
+    		<script src="js/big.js" ></script>
   </body>
 </html>

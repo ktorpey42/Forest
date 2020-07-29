@@ -9,10 +9,14 @@
 	padding-left: .5rem;
 
 }
+ .maptime {
+
+   padding-left: 2rem;
+ }
 
 .top {
 
-  height: 80px;
+  height: 100px;
   background-color: #10f6cd;
 }
 
