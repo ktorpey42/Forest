@@ -62,14 +62,10 @@ function callback(results, status) {
 
 function createMarker(place) {
     var placeLoc = place.geometry.location;
-    let icon = {
-   url: './images/pin.png',
-
-}
-    var marker = new google.maps.Marker({
+        var marker = new google.maps.Marker({
         map: map,
-        position: place.geometry.location,
-        icon: icon
+        position: place.geometry.location
+
     });
 
 
