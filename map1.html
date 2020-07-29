@@ -58,7 +58,7 @@
       		location.long = pos.coords.longitude;
           map = new google.maps.Map(document.getElementById("map"), {
       	 center: {lat: location.lat, lng: location.long},
-      	 zoom: 13
+      	 zoom: 11
        });
           var pyrmont = new google.maps.LatLng(location.lat, location.long);
           request = {
@@ -101,8 +101,8 @@
           var placeLoc = place.geometry.location;
           var marker = new google.maps.Marker({
               map: map,
-              position: place.geometry.location
-
+              position: place.geometry.location,
+              icon:url('../images/pin.png')
           });
 
 
