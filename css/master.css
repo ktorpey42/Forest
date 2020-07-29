@@ -10,6 +10,11 @@
 
 }
 
+.top {
+
+  height: 80px;
+  background-color: #10f6cd;
+}
 
 
 .wall {
@@ -42,7 +47,7 @@ header p {
   display: block;
   margin: 0 auto;
   text-align: left;
-  padding: 20px 0;
+  padding: 15px 0;
 
 }
 
@@ -70,7 +75,7 @@ img {
 
 #map {
 	width:100%;
-	height:35em;
+	height: calc(100vh - 105px);
 }
 
 .container {
@@ -248,6 +253,19 @@ img {
 
 }
 
+.tap3b {
+
+  padding-top: .25rem;
+  padding-bottom: .25rem;
+  background-color: #10F6CD;
+	display: flex;
+	justify-content: center;
+
+}
+
+
+
+
 .tap3 a {
 
 	 color: #3D3C3E;
@@ -402,11 +420,11 @@ section p {
     line-height: 2rem;
 
 }
-
+/*
 .keyboard {
   bottom: 0;
 }
-
+*/
 .on1 {
 
   margin: auto;
@@ -414,3 +432,64 @@ section p {
 }
 
 }
+
+
+/* Popup box BEGIN */
+.hover_bkgr_fricc{
+    background:rgba(0,0,0,.4);
+    cursor:pointer;
+    /*display:none;*/
+    height:100%;
+    position:fixed;
+    text-align:center;
+    top:0;
+    width:100%;
+    z-index:10000;
+}
+.hover_bkgr_fricc .helper{
+    display:inline-block;
+    height:100%;
+    vertical-align:middle;
+}
+.hover_bkgr_fricc > div {
+    /*background-color: #fff;*/
+    background-color: #10F6CD;
+    box-shadow: 10px 10px 60px #555;
+    display: inline-block;
+    height: auto;
+    max-width: 551px;
+    min-height: 100px;
+    vertical-align: middle;
+    width: 60%;
+    position: relative;
+    border-radius: 8px;
+    padding: 15px 5%;
+}
+.popupCloseButton {
+    background-color: #fff;
+    border: 3px solid #999;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-block;
+    font-family: arial;
+    font-weight: bold;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 25px;
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+.popupCloseButton:hover {
+    background-color: #ccc;
+}
+.trigger_popup_fricc {
+    cursor: pointer;
+    font-size: 20px;
+    margin: 20px;
+    display: inline-block;
+    font-weight: bold;
+}
+/* Popup box BEGIN */

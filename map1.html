@@ -7,7 +7,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-		<title>Sign in</title>
+		<title>Map</title>
 		<link type="text/css" rel="stylesheet" href="css/reset.css" />
 		<link type="text/css" rel="stylesheet" href="css/master.css" />
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
@@ -21,12 +21,8 @@
 
     src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCpHK_L3crjNHbzd-gv4u4Gh09NGCwwrwo&callback=initMap">
     </script>
+
     <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 100%;
-      }
 
       /* Optional: Makes the sample page fill the window. */
       html,
@@ -36,92 +32,43 @@
         padding: 0;
       }
     </style>
-    <script>
-      "use strict";
 
-      // Note: This example requires that you consent to location sharing when
-      // prompted by your browser. If you see the error "The Geolocation service
-      // failed.", it means you probably did not give permission for the browser to
-      // locate you.
-      let map;
-      let infowindow;
-
-      let request;
-      let service;
-      let markers = [];
-
-      function initMap() {
-      	let location = new Object();
-      	navigator.geolocation.getCurrentPosition(function(pos){
-      		location.lat = pos.coords.latitude;
-      		location.long = pos.coords.longitude;
-          map = new google.maps.Map(document.getElementById("map"), {
-      	 center: {lat: location.lat, lng: location.long},
-      	 zoom: 15
-       });
-          var pyrmont = new google.maps.LatLng(location.lat, location.long);
-          request = {
-            location: pyrmont,
-            radius: '10000',
-            type: ['park']
-          };
-          infowindow = new google.maps.InfoWindow();
-          service = new google.maps.places.PlacesService(map);
-          service.nearbySearch(request, callback);
-
-          google.maps.event.addListener(map, 'click', function(event) {
-              map.setCenter(event.latLng)
-              clearResults(markers)
-
-              var request = {
-                location: event.latLng,
-                radius: '10000',
-                  type: ['park']
-              };
-              service.nearbySearch(request, callback);
-          })
-
-
-
-
-     });
-}
-
-      function callback(results, status) {
-          if(status == google.maps.places.PlacesServiceStatus.OK) {
-              for (var i = 0; i < results.length; i++) {
-                 markers.push(createMarker(results[i]));
-        }
-    }
-
-}
-
-      function createMarker(place) {
-          var placeLoc = place.geometry.location;
-          var marker = new google.maps.Marker({
-              map: map,
-              position: place.geometry.location
-
-          });
-
-          google.maps.event.addListener(marker, 'click', function() {
-            infowindow.setContent(place.name);
-            infowindow.open(map, this);
-          });
-
-          return marker;
-      }
-
-      function clearResults(markers) {
-          for (var m in markers) {
-            markers[m].setMap(null)
-          }
-          markers = []
-      }
-
-    </script>
   </head>
-  <body>
-    <div id="map"></div>
+  <body >
+    <header class="top">
+  		<p><span id="datetime"></span></p>
+      <h1><span class="bold"><span id="result"></span>, Let's start</span><br> forest bathing!</h1>
+      <h2>Below nearby parks within 10km.</h2>
+      <div class="tap3a">
+          <a href="onboarding4.html"><i class="fas fa-step-backward"></i></a>
+          <a href=""><p class="tap1a" >(Skip)</p></a>
+          <a href=""><i class="fas fa-step-forward"></i></a>
+      </div>
+  	</header>
+
+
+          <!--<a class="trigger_popup_fricc">Click here to show the popup</a> !-->
+
+          <div class="hover_bkgr_fricc">
+              <span class="helper"></span>
+              <div>
+                  <div class="popupCloseButton">&times;</div>
+                  <p>Tap the pins to read<br />Terra's route suggestion<br />& start route guidance.</p>
+                  <a href=""><img src="images/overlay1.png"  alt="Pointer symbol" /></a>
+              </div>
+          </div>
+          <div id="map"></div>
+          <div class="tap3b">
+              <a href="onboarding3.html"><i class="fas fa-step-backward"></i></a>
+              <a href=""><p> (Skip) </p></a>
+              <a href="signin1.html"><i class="fas fa-step-forward"></i></a>
+          </div>
+
+<footer>
+
+
+  <script  src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/big.js" ></script>
+</footer>
   </body>
 </html>
